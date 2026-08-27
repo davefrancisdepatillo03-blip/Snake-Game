@@ -1,1184 +1,671 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>The Man Who Can't Be Moved ❤️</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            font-family: Arial, sans-serif;
-            color: white;
-
-            overflow: hidden;
-
-            background:
-                linear-gradient(
-                    rgba(25, 0, 30, 0.55),
-                    rgba(60, 0, 45, 0.75)
-                ),
-                url("romantic-bg.jpg");
-
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-
-        /* Romantic moving glow */
-
-        body::before {
-            content: "";
-
-            position: fixed;
-            inset: 0;
-
-            background:
-                radial-gradient(
-                    circle at 50% 50%,
-                    rgba(255, 80, 180, 0.25),
-                    transparent 60%
-                );
-
-            animation: glow 4s infinite alternate;
-
-            pointer-events: none;
-
-            z-index: 0;
-        }
-
-
-        @keyframes glow {
-
-            from {
-                opacity: 0.4;
-            }
-
-            to {
-                opacity: 1;
-            }
-
-        }
-
-
-        /* Music player */
-
-        .music-box {
-
-            position: fixed;
-
-            top: 15px;
-            right: 15px;
-
-            z-index: 100;
-
-            width: 260px;
-
-            padding: 12px;
-
-            border-radius: 20px;
-
-            background:
-                rgba(0, 0, 0, 0.35);
-
-            backdrop-filter:
-                blur(10px);
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.25);
-
-            box-shadow:
-                0 0 20px
-                rgba(255, 80, 180, 0.4);
-        }
-
-
-        .music-title {
-
-            font-size: 13px;
-
-            text-align: center;
-
-            margin-bottom: 8px;
-
-            color: white;
-
-            text-shadow:
-                0 0 8px #ff66b7;
-        }
-
-
-        audio {
-
-            width: 100%;
-
-            height: 38px;
-        }
-
-
-        /* Main card */
-
-        .container {
-
-            position: relative;
-
-            z-index: 10;
-
-            text-align: center;
-
-            padding: 40px 30px;
-
-            width: 90%;
-
-            max-width: 550px;
-
-            border-radius: 30px;
-
-            background:
-                rgba(255, 255, 255, 0.12);
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.3);
-
-            backdrop-filter:
-                blur(15px);
-
-            -webkit-backdrop-filter:
-                blur(15px);
-
-            box-shadow:
-                0 0 40px
-                rgba(255, 70, 170, 0.45);
-
-            animation:
-                appear 1s ease;
-        }
-
-
-        @keyframes appear {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    scale(0.6)
-                    translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    scale(1)
-                    translateY(0);
-            }
-
-        }
-
-
-        .hidden {
-            display: none;
-        }
-
-
-        /* Screen transition */
-
-        .screenAnimation {
-
-            animation:
-                screenAnimation
-                0.8s ease;
-        }
-
-
-        @keyframes screenAnimation {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    scale(0.7)
-                    translateY(40px)
-                    rotateX(15deg);
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    scale(1)
-                    translateY(0)
-                    rotateX(0);
-            }
-
-        }
-
-
-        /* Headings */
-
-        h1 {
-
-            font-size:
-                clamp(30px, 7vw, 48px);
-
-            margin-bottom: 15px;
-
-            text-shadow:
-                0 0 10px #ff66b7,
-                0 0 30px #ff3399;
-        }
-
-
-        p {
-
-            font-size: 20px;
-
-            line-height: 1.6;
-
-            margin-bottom: 30px;
-        }
-
-
-        /* Buttons */
-
-        button {
-
-            border: none;
-
-            padding:
-                15px 28px;
-
-            margin: 7px;
-
-            border-radius: 50px;
-
-            font-size: 17px;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            color: white;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ff4fa3,
-                    #ff176f
-                );
-
-            box-shadow:
-                0 0 15px
-                rgba(255, 50, 150, 0.7);
-
-            transition:
-                transform 0.25s,
-                box-shadow 0.25s;
-        }
-
-
-        button:hover {
-
-            transform:
-                scale(1.08)
-                translateY(-3px);
-
-            box-shadow:
-                0 0 30px
-                rgba(255, 80, 180, 1);
-        }
-
-
-        button:active {
-
-            transform:
-                scale(0.92);
-        }
-
-
-        .secondary {
-
-            background:
-                rgba(255, 255, 255, 0.15);
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.3);
-
-            box-shadow: none;
-        }
-
-
-        /* Big heart */
-
-        .big-heart {
-
-            font-size: 80px;
-
-            animation:
-                heartbeat
-                1.3s infinite;
-        }
-
-
-        @keyframes heartbeat {
-
-            0% {
-                transform: scale(1);
-            }
-
-            20% {
-                transform: scale(1.2);
-            }
-
-            40% {
-                transform: scale(1);
-            }
-
-            60% {
-                transform: scale(1.15);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-
-        }
-
-
-        /* Floating hearts */
-
-        .heart {
-
-            position: fixed;
-
-            bottom: -50px;
-
-            pointer-events: none;
-
-            z-index: 3;
-
-            animation:
-                floatHeart
-                5s linear forwards;
-        }
-
-
-        @keyframes floatHeart {
-
-            0% {
-
-                transform:
-                    translateY(0)
-                    scale(0.5)
-                    rotate(0deg);
-
-                opacity: 0;
-            }
-
-            20% {
-                opacity: 1;
-            }
-
-            100% {
-
-                transform:
-                    translateY(-110vh)
-                    scale(1.7)
-                    rotate(25deg);
-
-                opacity: 0;
-            }
-
-        }
-
-
-        /* Sparkles */
-
-        .sparkle {
-
-            position: fixed;
-
-            width: 5px;
-            height: 5px;
-
-            border-radius: 50%;
-
-            background: white;
-
-            pointer-events: none;
-
-            z-index: 2;
-
-            animation:
-                sparkle
-                2s infinite alternate;
-        }
-
-
-        @keyframes sparkle {
-
-            from {
-
-                opacity: 0.1;
-
-                transform:
-                    scale(0.5);
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    scale(2);
-
-                box-shadow:
-                    0 0 15px white;
-            }
-
-        }
-
-
-        /* Final floating words */
-
-        .floating-word {
-
-            position: fixed;
-
-            z-index: 50;
-
-            color: white;
-
-            font-size: 22px;
-
-            font-weight: bold;
-
-            text-align: center;
-
-            white-space: nowrap;
-
-            pointer-events: none;
-
-            text-shadow:
-                0 0 8px #ff69b4,
-                0 0 18px #ff1493,
-                0 0 30px rgba(255, 105, 180, 0.8);
-
-            animation:
-                flyWord
-                5s ease-out forwards;
-        }
-
-
-        @keyframes flyWord {
-
-            0% {
-
-                opacity: 0;
-
-                transform:
-                    translate(0, 0)
-                    scale(0.5);
-            }
-
-            15% {
-
-                opacity: 1;
-
-                transform:
-                    translate(0, -30px)
-                    scale(1);
-            }
-
-            100% {
-
-                opacity: 0;
-
-                transform:
-                    translate(
-                        var(--moveX),
-                        var(--moveY)
-                    )
-                    scale(1.2)
-                    rotate(var(--rotate));
-            }
-
-        }
-
-
-        /* Final message */
-
-        .final-message {
-
-            font-size: 21px;
-
-            animation:
-                messageAppear
-                1.5s ease;
-        }
-
-
-        @keyframes messageAppear {
-
-            from {
-
-                opacity: 0;
-
-                transform:
-                    translateY(30px);
-            }
-
-            to {
-
-                opacity: 1;
-
-                transform:
-                    translateY(0);
-            }
-
-        }
-
-
-        /* Mobile */
-
-        @media(max-width:600px) {
-
-            .container {
-
-                padding:
-                    30px 20px;
-            }
-
-            h1 {
-
-                font-size: 30px;
-            }
-
-            p {
-
-                font-size: 17px;
-            }
-
-            button {
-
-                width: 90%;
-
-                font-size: 15px;
-            }
-
-            .music-box {
-
-                width: 210px;
-
-                top: 10px;
-
-                right: 10px;
-            }
-
-            .floating-word {
-
-                font-size: 16px;
-            }
-
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game by Depatillo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none; /* Pigilan ang pag-highlight sa mobile touch */
+      -webkit-user-select: none;
+    }
+
+    body {
+      background-color: #07090e;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow: hidden;
+      touch-action: manipulation;
+    }
+
+    /* --- GAME CANVAS STYLES --- */
+    .game-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .score-board {
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      color: #facc15;
+      text-shadow: 0 0 10px rgba(250, 204, 21, 0.4);
+      font-weight: 600;
+    }
+
+    canvas {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      background-color: #03050a;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+      max-width: 90vw;
+      max-height: 50vh;
+      touch-action: none; /* Pigilan ang scroll kapag nag-swipe sa canvas */
+    }
+
+    /* --- MOBILE CONTROLS (D-PAD) --- */
+    .mobile-controls {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      width: 180px;
+      height: 180px;
+      margin-top: 10px;
+    }
+
+    .dpad-btn {
+      background: rgba(250, 204, 21, 0.1);
+      border: 1px solid rgba(250, 204, 21, 0.3);
+      color: #facc15;
+      font-size: 1.5rem;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.1s, transform 0.1s;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .dpad-btn:active {
+      background: rgba(250, 204, 21, 0.4);
+      transform: scale(0.92);
+    }
+
+    /* D-Pad Layout Positions */
+    #btn-up { grid-column: 2; grid-row: 1; }
+    #btn-left { grid-column: 1; grid-row: 2; }
+    #btn-right { grid-column: 3; grid-row: 2; }
+    #btn-down { grid-column: 2; grid-row: 3; }
+
+    /* Hide D-Pad on large desktop screens if desired, or keep it visible for touch laptops */
+    @media (min-width: 1024px) {
+      .mobile-controls {
+        display: none; /* Pwedeng alisin ito kung gustong panatilihin ang buttons kahit sa desktop */
+      }
+    }
+
+    /* --- CINEMATIC BROKEN DEFEAT OVERLAY STYLES --- */
+    #defeat-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle at center, rgba(30, 8, 12, 0.92) 0%, rgba(4, 2, 5, 0.98) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.2s ease-in-out;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #defeat-screen.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #defeat-screen::before {
+      content: " ";
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+      background-size: 100% 4px;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .rain-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .drop {
+      position: absolute;
+      background: linear-gradient(transparent, rgba(220, 38, 38, 0.4));
+      width: 1px;
+      height: 90px;
+      opacity: 0.2;
+      animation: fall 1.5s linear infinite;
+    }
+
+    .heart-particle {
+      position: absolute;
+      color: rgba(220, 38, 38, 0.2);
+      font-size: 12px;
+      pointer-events: none;
+      animation: floatUp 4s ease-in-out infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100px); }
+      100% { transform: translateY(100vh); }
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+      50% { opacity: 0.3; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+
+    .defeat-content {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 500px;
+      width: 100%;
+      background: rgba(15, 7, 10, 0.5);
+      border: 1px solid rgba(255, 50, 50, 0.15);
+      padding: 35px 25px;
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(220, 38, 38, 0.05);
+    }
+
+    .defeat-subtitle {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      color: #9ca3af;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      opacity: 0.7;
+    }
+
+    .defeat-title {
+      font-size: clamp(1.5rem, 4vw, 2.3rem);
+      color: #f87171;
+      font-weight: 300;
+      letter-spacing: 3px;
+      margin-bottom: 25px;
+      text-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+      animation: pulseTitle 4s infinite alternate;
+    }
+
+    @keyframes pulseTitle {
+      0% { opacity: 0.8; transform: scale(0.99); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .teleprompter-viewport {
+      position: relative;
+      width: 100%;
+      height: 140px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 30%, black 70%, transparent 100%);
+    }
+
+    .teleprompter-track {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .lyric-line {
+      transition: all 0.5s ease;
+      opacity: 0.25;
+      font-size: 0.85rem;
+      color: #a1a1aa;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      transform: scale(0.95);
+    }
+
+    .lyric-line.active {
+      opacity: 1;
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      color: #ffffff;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(239, 68, 68, 0.5);
+      transform: scale(1);
+    }
+
+    .retry-btn {
+      background: rgba(220, 38, 38, 0.08);
+      border: 1px solid rgba(220, 38, 38, 0.3);
+      color: #e5e7eb;
+      padding: 10px 24px;
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .retry-btn:hover {
+      background: rgba(220, 38, 38, 0.8);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+      border-color: transparent;
+      transform: translateY(-1px);
+    }
+
+    @media (max-width: 600px) {
+      .defeat-title { letter-spacing: 2px; }
+      .teleprompter-viewport { height: 120px; }
+    }
+  </style>
 </head>
-
-
 <body>
 
-
-    <!-- MUSIC PLAYER -->
-
-    <div class="music-box">
-
-        <div class="music-title">
-            🎵 The Man Who Can't Be Moved ❤️
-        </div>
-
-        <audio controls autoplay>
-            <source src="song.mp3" type="audio/mpeg">
-                </audio>
-
-   
+  <!-- SNAKE GAME INTERFACE -->
+  <div class="game-container">
+    <div class="score-board">
+      KRABBY PATTIES: <span id="score">0</span> | BEST: <span id="high-score">0</span>
     </div>
+    <canvas id="game" width="400" height="400"></canvas>
 
-
-
-    <!-- SCREEN 1 -->
-
-    <div
-        class="container screenAnimation"
-        id="screen1"
-    >
-
-        <div class="big-heart">
-            ❤️
-        </div>
-
-        <h1>
-            Hi Chris Anne Vendejo ❤️
-        </h1>
-
-        <p>
-            I made it! Kala ko matagal pa 'to eh 😭...
-            <br><br>
-            EHHEEHHEEHEHEHEHEHE
-        </p>
-
-        <button onclick="openIt()">
-            Open It 💗
-        </button>
-
+    <!-- MOBILE ON-SCREEN CONTROLS -->
+    <div class="mobile-controls">
+      <button class="dpad-btn" id="btn-up" onclick="changeDirection('UP')">▲</button>
+      <button class="dpad-btn" id="btn-left" onclick="changeDirection('LEFT')">◄</button>
+      <button class="dpad-btn" id="btn-right" onclick="changeDirection('RIGHT')">►</button>
+      <button class="dpad-btn" id="btn-down" onclick="changeDirection('DOWN')">▼</button>
     </div>
+  </div>
 
+  <!-- DEFEAT OVERLAY -->
+  <div id="defeat-screen">
+    <div class="rain-container" id="rain"></div>
 
+    <div class="defeat-content">
+      <span class="defeat-subtitle">System Status: Heartbroken</span>
+      <h1 class="defeat-title">Relapse ka muna 😋</h1>
+      
+      <div class="teleprompter-viewport">
+        <div class="teleprompter-track" id="teleprompter-track"></div>
+      </div>
 
-    <!-- SCREEN 2 -->
-
-    <div
-        class="container hidden"
-        id="screen2"
-    >
-
-        <div class="big-heart">
-            💕
-        </div>
-
-        <h1>
-            One Question... 🥺
-        </h1>
-
-        <p>
-            Gala tayo? 😌❤️
-        </p>
-
-        <button onclick="answerOne()">
-            YES ❤️
-        </button>
-
-        <button onclick="answerOne()">
-            Sige basta libre ko! 💕
-        </button>
-
-        <button
-            class="secondary"
-            onclick="answerOne()"
-        >
-            Sige, Pag-iisipan Ko 😏
-        </button>
-
+      <button class="retry-btn" onclick="restartGame()">Try again para masaktan ka ulit</button>
     </div>
+  </div>
 
+  <!-- AUDIO ELEMENT -->
+  <audio id="defeat-audio" src="kalapastangan.mp3" preload="auto"></audio>
 
+  <script>
+    // ==========================================
+    // 1. GAME LOGIC (SPONGEBOB SNAKE GAME)
+    // ==========================================
+    const canvas = document.getElementById('game');
+    const ctx = canvas.getContext('2d');
+    const grid = 20;
+    const tile = canvas.width / grid;
 
-    <!-- SCREEN 3 -->
+    let snake, food, dir, nextDir, score, highScore, gameLoop, speed;
+    let isGameOver = false;
 
-    <div
-        class="container hidden"
-        id="screen3"
-    >
+    highScore = localStorage.getItem('snake_high') || 0;
+    document.getElementById('high-score').textContent = highScore;
 
-        <div class="big-heart">
-            💌
-        </div>
+    function init() {
+      snake = [{x: 10, y: 10}, {x: 9, y: 10}, {x: 8, y: 10}];
+      dir = 'RIGHT';
+      nextDir = 'RIGHT';
+      score = 0;
+      speed = 120;
+      isGameOver = false;
+      document.getElementById('score').textContent = score;
+      
+      hideDefeatScreen();
+      food = randomFood();
+      clearInterval(gameLoop);
+      gameLoop = setInterval(update, speed);
+    }
 
-        <h1>
-            Another Question...
-        </h1>
+    function randomFood() {
+      let pos;
+      do {
+        pos = {
+          x: Math.floor(Math.random() * grid),
+          y: Math.floor(Math.random() * grid)
+        };
+      } while (snake.some(p => p.x === pos.x && p.y === pos.y));
+      return pos;
+    }
 
-        <p>
-            Kailan ka usually free? 👀
-        </p>
+    function update() {
+      if (isGameOver) return;
 
-        <button onclick="answerTwo()">
-            Weekends ❤️
-        </button>
+      dir = nextDir;
+      const head = { ...snake[0] };
 
-        <button onclick="answerTwo()">
-            Weekdays 💕
-        </button>
+      if (dir === 'UP') head.y--;
+      if (dir === 'DOWN') head.y++;
+      if (dir === 'LEFT') head.x--;
+      if (dir === 'RIGHT') head.x++;
 
-        <button onclick="answerTwo()">
-            Sabihin Ko Na Lang 😭
-        </button>
+      if (head.x < 0 || head.x >= grid || head.y < 0 || head.y >= grid) {
+        triggerGameOver(); return;
+      }
 
-    </div>
+      if (snake.some(p => p.x === head.x && p.y === head.y)) {
+        triggerGameOver(); return;
+      }
 
+      snake.unshift(head);
 
+      if (head.x === food.x && head.y === food.y) {
+        score++;
+        document.getElementById('score').textContent = score;
 
-    <!-- SCREEN 4 -->
+        if (score > highScore) {
+          highScore = score;
+          localStorage.setItem('snake_high', highScore);
+          document.getElementById('high-score').textContent = highScore;
+        }
+        food = randomFood();
+      } else {
+        snake.pop();
+      }
 
-    <div
-        class="container hidden"
-        id="screen4"
-    >
+      draw();
+    }
 
-        <div class="big-heart">
-            🥺❤️
-        </div>
+    function draw() {
+      ctx.fillStyle = '#03050a';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        <h1>
-            Last Question
-        </h1>
+      // --- DRAW KRABBY PATTY (FOOD) ---
+      const fx = food.x * tile;
+      const fy = food.y * tile;
+      
+      ctx.fillStyle = '#d97706';
+      ctx.beginPath();
+      ctx.arc(fx + tile / 2, fy + 5, 7, Math.PI, 0, false);
+      ctx.fill();
 
-        <p>
-            Gusto mo ba akong makasama? 👀
-        </p>
+      ctx.fillStyle = '#22c55e';
+      ctx.fillRect(fx + 3, fy + 7, tile - 6, 2);
 
-        <button onclick="finalQuestion()">
-            OO NAMAN! ❤️
-        </button>
+      ctx.fillStyle = '#451a03';
+      ctx.fillRect(fx + 2, fy + 9, tile - 4, 4);
 
-        <button onclick="finalQuestion()">
-            Obviously! 💕
-        </button>
+      ctx.fillStyle = '#b45309';
+      ctx.fillRect(fx + 3, fy + 13, tile - 6, 3);
 
-        <button onclick="finalQuestion()">
-            Siguro... 🤭
-        </button>
+      // --- DRAW SPONGEBOB (SNAKE) ---
+      snake.forEach((p, index) => {
+        const x = p.x * tile;
+        const y = p.y * tile;
 
-    </div>
+        if (index === 0) {
+          // Head
+          ctx.fillStyle = '#facc15';
+          ctx.fillRect(x, y, tile - 1, tile - 1);
 
+          ctx.fillStyle = '#ca8a04';
+          ctx.beginPath();
+          ctx.arc(x + 4, y + 4, 1.5, 0, Math.PI * 2);
+          ctx.arc(x + 15, y + 15, 1.5, 0, Math.PI * 2);
+          ctx.fill();
 
+          ctx.fillStyle = '#ffffff';
+          ctx.beginPath();
+          ctx.arc(x + 6, y + 7, 3.5, 0, Math.PI * 2);
+          ctx.arc(x + 13, y + 7, 3.5, 0, Math.PI * 2);
+          ctx.fill();
 
-    <!-- FINAL SCREEN -->
+          ctx.fillStyle = '#0284c7';
+          ctx.beginPath();
+          ctx.arc(x + 6, y + 7, 1.8, 0, Math.PI * 2);
+          ctx.arc(x + 13, y + 7, 1.8, 0, Math.PI * 2);
+          ctx.fill();
 
-    <div
-        class="container hidden"
-        id="screen5"
-    >
+          ctx.strokeStyle = '#000000';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.arc(x + 9.5, y + 10, 4, 0.1 * Math.PI, 0.9 * Math.PI);
+          ctx.stroke();
 
-        <div class="big-heart">
-            💖
-        </div>
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(x + 8, y + 13, 1.5, 2);
+          ctx.fillRect(x + 10, y + 13, 1.5, 2);
 
-        <h1>
-            Sabi mo yan ha! 😭❤️
-        </h1>
+        } else {
+          // Body / Clothes
+          ctx.fillStyle = '#facc15';
+          ctx.fillRect(x, y, tile - 1, tile - 6);
 
-        <p class="final-message">
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(x, y + tile - 6, tile - 1, 2);
 
-            Chat mo lang me kung kailan ka free hehe.
-            <br><br>
+          ctx.fillStyle = '#ef4444';
+          ctx.fillRect(x + 8, y + tile - 6, 3, 3);
 
-            Thank you for your time.
-            <br>
+          ctx.fillStyle = '#78350f';
+          ctx.fillRect(x, y + tile - 4, tile - 1, 3);
+        }
+      });
+    }
 
-            See you soonest. ❤️
+    function triggerGameOver() {
+      if (isGameOver) return;
+      isGameOver = true;
+      clearInterval(gameLoop);
+      showDefeatScreen();
+    }
 
-        </p>
+    function restartGame() {
+      init();
+    }
 
-        <button onclick="celebrate()">
-            Okay, See You Soon! 💕
-        </button>
+    // Direction Changer Helper
+    function changeDirection(newDir) {
+      unlockAudio();
+      if (newDir === 'UP' && dir !== 'DOWN') nextDir = 'UP';
+      if (newDir === 'DOWN' && dir !== 'UP') nextDir = 'DOWN';
+      if (newDir === 'LEFT' && dir !== 'RIGHT') nextDir = 'LEFT';
+      if (newDir === 'RIGHT' && dir !== 'LEFT') nextDir = 'RIGHT';
+    }
 
-    </div>
+    function unlockAudio() {
+      const audio = document.getElementById('defeat-audio');
+      if (audio.paused && audio.currentTime === 0) {
+        audio.play().then(() => {
+          audio.pause();
+        }).catch(() => {});
+      }
+    }
 
+    // Keyboard Controls
+    window.addEventListener('keydown', e => {
+      if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') changeDirection('UP');
+      if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') changeDirection('DOWN');
+      if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') changeDirection('LEFT');
+      if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') changeDirection('RIGHT');
+    });
 
+    // Touch Swipe Support on Canvas
+    let touchStartX = 0;
+    let touchStartY = 0;
 
-    <script>
+    canvas.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      unlockAudio();
+    }, { passive: true });
 
+    canvas.addEventListener('touchend', e => {
+      if (!touchStartX || !touchStartY) return;
 
-        /* =========================
-           SCREEN FUNCTIONS
-        ========================= */
+      let touchEndX = e.changedTouches[0].clientX;
+      let touchEndY = e.changedTouches[0].clientY;
 
+      let diffX = touchEndX - touchStartX;
+      let diffY = touchEndY - touchStartY;
 
-        function openIt() {
+      // Minimum threshold para maituring na swipe
+      if (Math.abs(diffX) > 20 || Math.abs(diffY) > 20) {
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+          // Horizontal Swipe
+          if (diffX > 0) changeDirection('RIGHT');
+          else changeDirection('LEFT');
+        } else {
+          // Vertical Swipe
+          if (diffY > 0) changeDirection('DOWN');
+          else changeDirection('UP');
+        }
+      }
 
-            changeScreen(
-                "screen1",
-                "screen2"
-            );
+      touchStartX = 0;
+      touchStartY = 0;
+    }, { passive: true });
 
-            createHearts(35);
+    // ==========================================
+    // 2. TELEPROMPTER & AUDIO LOGIC
+    // ==========================================
+    const lyricsData = [
+      { time: 16, text: "♪Oras ng, Sambahin ang ngalan mo♪" },
+      { time: 17, text: "♪Para mabuhay habambuhay, sa puso't isipan mo♪" },
+      { time: 29, text: "♪Sino ba ako? Para mapansin mo♪" },
+      { time: 39, text: "♪Mga dalangin ko sayo sana'y pakinggan mo♪" },
+      { time: 50, text: "Aray mo! HAHAHAAHAHA" },
+    ];
 
-            createSparkles(30);
+    const defeatScreen = document.getElementById('defeat-screen');
+    const defeatAudio = document.getElementById('defeat-audio');
+    const teleprompterTrack = document.getElementById('teleprompter-track');
+    let lyricsInterval = null;
+    let lineElements = [];
+    let currentActiveIndex = -1;
 
+    // Atmospheric Rain & Broken Heart Particles
+    const rainContainer = document.getElementById('rain');
+    for (let i = 0; i < 30; i++) {
+      const drop = document.createElement('div');
+      drop.classList.add('drop');
+      drop.style.left = Math.random() * 100 + '%';
+      drop.style.animationDuration = (1 + Math.random() * 0.8) + 's';
+      drop.style.animationDelay = Math.random() * 2 + 's';
+      rainContainer.appendChild(drop);
+    }
+
+    for (let i = 0; i < 8; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart-particle');
+      heart.textContent = '💔';
+      heart.style.left = Math.random() * 100 + '%';
+      heart.style.animationDuration = (3 + Math.random() * 3) + 's';
+      heart.style.animationDelay = Math.random() * 3 + 's';
+      rainContainer.appendChild(heart);
+    }
+
+    function buildTeleprompterUI() {
+      teleprompterTrack.innerHTML = '';
+      lineElements = [];
+      
+      lyricsData.forEach(item => {
+        const div = document.createElement('div');
+        div.classList.add('lyric-line');
+        div.textContent = item.text;
+        teleprompterTrack.appendChild(div);
+        lineElements.push(div);
+      });
+    }
+
+    function showDefeatScreen() {
+      buildTeleprompterUI();
+      currentActiveIndex = -1;
+      updateTeleprompterPos(0);
+
+      defeatScreen.classList.add('active');
+
+      defeatAudio.volume = 1.0; 
+      defeatAudio.currentTime = 0;
+
+      const playPromise = defeatAudio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.warn("Autoplay was prevented:", error);
+        });
+      }
+
+      startTeleprompterSync();
+    }
+
+    function hideDefeatScreen() {
+      defeatScreen.classList.remove('active');
+      defeatAudio.pause();
+      defeatAudio.currentTime = 0;
+      if (lyricsInterval) clearInterval(lyricsInterval);
+    }
+
+    function startTeleprompterSync() {
+      if (lyricsInterval) clearInterval(lyricsInterval);
+
+      lyricsInterval = setInterval(() => {
+        const currentTime = defeatAudio.currentTime;
+        
+        let index = -1;
+        for (let i = 0; i < lyricsData.length; i++) {
+          if (currentTime >= lyricsData[i].time) {
+            index = i;
+          } else {
+            break;
+          }
         }
 
+        if (index === -1) index = 0;
 
-        function answerOne() {
-
-            createHearts(40);
-
-            createSparkles(25);
-
-            changeScreen(
-                "screen2",
-                "screen3"
-            );
-
+        if (index !== currentActiveIndex) {
+          currentActiveIndex = index;
+          updateTeleprompterPos(index);
         }
+      }, 100);
+    }
 
-
-        function answerTwo() {
-
-            createHearts(45);
-
-            createSparkles(30);
-
-            changeScreen(
-                "screen3",
-                "screen4"
-            );
-
+    function updateTeleprompterPos(activeIndex) {
+      lineElements.forEach((el, idx) => {
+        if (idx === activeIndex) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
         }
-
-
-        function finalQuestion() {
-
-            createHearts(70);
-
-            createSparkles(40);
-
-            changeScreen(
-                "screen4",
-                "screen5"
-            );
-
-        }
-
-
-
-        /* =========================
-           SCREEN TRANSITION
-        ========================= */
-
-
-        function changeScreen(
-            oldScreen,
-            newScreen
-        ) {
-
-            document
-                .getElementById(oldScreen)
-                .classList.add("hidden");
-
-
-            const newScreenElement =
-                document.getElementById(newScreen);
-
-
-            newScreenElement
-                .classList.remove("hidden");
-
-
-            newScreenElement
-                .classList.remove(
-                    "screenAnimation"
-                );
-
-
-            void newScreenElement.offsetWidth;
-
-
-            newScreenElement
-                .classList.add(
-                    "screenAnimation"
-                );
-
-        }
-
-
-
-        /* =========================
-           HEARTS
-        ========================= */
-
-
-        function createHearts(amount) {
-
-            const heartTypes = [
-                "❤️",
-                "💖",
-                "💕",
-                "💗",
-                "💓",
-                "💞",
-                "💘"
-            ];
-
-
-            for (
-                let i = 0;
-                i < amount;
-                i++
-            ) {
-
-                const heart =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                heart.className =
-                    "heart";
-
-
-                heart.textContent =
-                    heartTypes[
-                        Math.floor(
-                            Math.random()
-                            * heartTypes.length
-                        )
-                    ];
-
-
-                heart.style.left =
-                    Math.random() * 100
-                    + "vw";
-
-
-                heart.style.fontSize =
-                    (
-                        Math.random() * 25
-                        + 15
-                    )
-                    + "px";
-
-
-                heart.style.animationDuration =
-                    (
-                        Math.random() * 3
-                        + 3
-                    )
-                    + "s";
-
-
-                document.body.appendChild(
-                    heart
-                );
-
-
-                setTimeout(
-                    () => heart.remove(),
-                    7000
-                );
-
-            }
-
-        }
-
-
-
-        /* =========================
-           SPARKLES
-        ========================= */
-
-
-        function createSparkles(amount) {
-
-            for (
-                let i = 0;
-                i < amount;
-                i++
-            ) {
-
-                const sparkle =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                sparkle.className =
-                    "sparkle";
-
-
-                sparkle.style.left =
-                    Math.random() * 100
-                    + "vw";
-
-
-                sparkle.style.top =
-                    Math.random() * 100
-                    + "vh";
-
-
-                sparkle.style.animationDelay =
-                    Math.random() * 2
-                    + "s";
-
-
-                document.body.appendChild(
-                    sparkle
-                );
-
-
-                setTimeout(
-                    () => sparkle.remove(),
-                    5000
-                );
-
-            }
-
-        }
-
-
-
-        /* =========================
-           FINAL FLYING WORDS
-        ========================= */
-
-
-        function createFloatingWords() {
-
-            const words = [
-
-                "huwag na masungit ha ❤️",
-
-                "hoping na makilala pa kita 💕"
-
-            ];
-
-
-            for (
-                let i = 0;
-                i < 18;
-                i++
-            ) {
-
-                const word =
-                    document.createElement(
-                        "div"
-                    );
-
-
-                word.className =
-                    "floating-word";
-
-
-                word.textContent =
-                    words[
-                        Math.floor(
-                            Math.random()
-                            * words.length
-                        )
-                    ];
-
-
-                word.style.left =
-                    Math.random() * 80
-                    + 10
-                    + "vw";
-
-
-                word.style.top =
-                    Math.random() * 70
-                    + 15
-                    + "vh";
-
-
-                word.style.setProperty(
-                    "--moveX",
-                    (
-                        Math.random() * 500
-                        - 250
-                    ) + "px"
-                );
-
-
-                word.style.setProperty(
-                    "--moveY",
-                    (
-                        Math.random() * -500
-                        - 100
-                    ) + "px"
-                );
-
-
-                word.style.setProperty(
-                    "--rotate",
-                    (
-                        Math.random() * 40
-                        - 20
-                    ) + "deg"
-                );
-
-
-                word.style.animationDelay =
-                    Math.random() * 2
-                    + "s";
-
-
-                document.body.appendChild(
-                    word
-                );
-
-
-                setTimeout(
-                    () => word.remove(),
-                    7500
-                );
-
-            }
-
-        }
-
-
-
-        /* =========================
-           FINAL CELEBRATION
-        ========================= */
-
-
-        function celebrate() {
-
-            createHearts(120);
-
-            createSparkles(70);
-
-            createFloatingWords();
-
-        }
-
-
-
-        /* =========================
-           BACKGROUND HEARTS
-        ========================= */
-
-
-        setInterval(
-            () => createHearts(2),
-            1500
-        );
-
-
-        createSparkles(20);
-
-
-    </script>
-    <script>
-  document.addEventListener('click', function() {
-    var audio = document.querySelector('audio');
-    audio.play();
-  }, { once: true });
-</script>
-
-
+      });
+
+      if (lineElements[activeIndex]) {
+        const targetEl = lineElements[activeIndex];
+        const offsetTop = targetEl.offsetTop + (targetEl.offsetHeight / 2);
+        teleprompterTrack.style.transform = `translateY(calc(-${offsetTop}px))`;
+      }
+    }
+
+    init();
+  </script>
 </body>
-
 </html>
